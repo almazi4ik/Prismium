@@ -3,7 +3,7 @@
   "id": "prismium",
   "version": "${version}",
   "name": "Prismium",
-  "description": "Vanilla+ performance optimizations. Press L to open Prismium Settings.",
+  "description": "Vanilla+ performance optimizations. Press G to open Prismium Settings.",
   "authors": [
     "JustAlmazik"
   ],

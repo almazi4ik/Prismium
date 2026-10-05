@@ -4,6 +4,7 @@ import com.prismium.PrismiumClient;
 import net.minecraft.client.render.Frustum;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -32,7 +33,13 @@ public class EntityRenderDispatcherMixin {
             }
         }
 
-        int distance = PrismiumClient.distantCullingDistance;
+        int distance;
+
+        if (entity instanceof ItemEntity) {
+            distance = PrismiumClient.droppedItemDistance;
+        } else {
+            distance = PrismiumClient.distantCullingDistance;
+        }
 
         double dx = entity.getX() - x;
         double dy = entity.getY() - y;

@@ -1,6 +1,7 @@
 package com.prismium;
 
 import com.prismium.client.PrismiumSettingsScreen;
+import com.prismium.config.PrismiumConfig;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -14,14 +15,20 @@ public class PrismiumClient implements ClientModInitializer {
     public static boolean entityCulling = true;
     public static int distantCullingDistance = 60;
 
+    public static boolean particleCulling = true;
+    public static int particleCullingDistance = 16;
+
+    public static int droppedItemDistance = 64;
+
     private static KeyBinding settingsKey;
 
     @Override
     public void onInitializeClient() {
+        PrismiumConfig.load();
         settingsKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.prismium.settings",
                 InputUtil.Type.KEYSYM,
-                GLFW.GLFW_KEY_L,
+                GLFW.GLFW_KEY_G,
                 "category.prismium"
         ));
 
