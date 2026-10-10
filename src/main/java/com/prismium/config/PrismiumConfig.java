@@ -24,6 +24,8 @@ public class PrismiumConfig {
     private int distantCullingDistance = 60;
     private boolean particleCulling = true;
     private int particleCullingDistance = 16;
+    private int signTextDistance = 32;
+
     private int droppedItemDistance = 64;
 
     public static void load() {
@@ -37,7 +39,8 @@ public class PrismiumConfig {
                         PrismiumClient.distantCullingDistance = config.distantCullingDistance;
                         PrismiumClient.particleCulling = config.particleCulling;
                         PrismiumClient.particleCullingDistance = config.particleCullingDistance;
-                        PrismiumClient.droppedItemDistance = config.droppedItemDistance;
+                        PrismiumClient.signTextDistance = config.signTextDistance;
+            PrismiumClient.droppedItemDistance = config.droppedItemDistance;
                     }
                 }
             } else {
@@ -56,7 +59,8 @@ public class PrismiumConfig {
             config.distantCullingDistance = PrismiumClient.distantCullingDistance;
             config.particleCulling = PrismiumClient.particleCulling;
             config.particleCullingDistance = PrismiumClient.particleCullingDistance;
-            config.droppedItemDistance = PrismiumClient.droppedItemDistance;
+            config.signTextDistance = PrismiumClient.signTextDistance;
+        config.droppedItemDistance = PrismiumClient.droppedItemDistance;
 
             Files.createDirectories(FILE.getParent());
 

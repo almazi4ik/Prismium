@@ -5,7 +5,8 @@
   "client": [
     "EntityRenderDispatcherMixin",
     "ParticleMixin",
-    "ParticleAccessor"
+    "ParticleAccessor",
+    "SignTextCullingMixin"
   ],
   "injectors": {
     "defaultRequire": 1

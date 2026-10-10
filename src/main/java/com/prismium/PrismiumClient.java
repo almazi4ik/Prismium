@@ -18,7 +18,10 @@ public class PrismiumClient implements ClientModInitializer {
     public static boolean particleCulling = true;
     public static int particleCullingDistance = 16;
 
+    public static int signTextDistance = 32;
+
     public static int droppedItemDistance = 64;
+
 
     private static KeyBinding settingsKey;
 

@@ -38,13 +38,31 @@ public class PrismiumSettingsScreen extends Screen {
                 "Distance: ",
                 PrismiumClient.distantCullingDistance,
                 () -> {
-                    PrismiumClient.distantCullingDistance =
-                            Math.max(1, PrismiumClient.distantCullingDistance - 10);
+                    int[] steps = {1, 8, 16, 24, 32, 40, 48, 56, 64};
+                    int current = PrismiumClient.distantCullingDistance;
+                    for (int i = 0; i < steps.length; i++) {
+                        if (steps[i] >= current) {
+                            PrismiumClient.distantCullingDistance =
+                                    steps[Math.max(0, i - 1)];
+                            break;
+                        }
+                    }
+                    if (current > 64) {
+                        PrismiumClient.distantCullingDistance = 64;
+                    }
                     rebuild();
                 },
                 () -> {
-                    PrismiumClient.distantCullingDistance =
-                            Math.min(256, PrismiumClient.distantCullingDistance + 10);
+                    int[] steps = {1, 8, 16, 24, 32, 40, 48, 56, 64};
+                    int current = PrismiumClient.distantCullingDistance;
+                    int next = 64;
+                    for (int step : steps) {
+                        if (step > current) {
+                            next = step;
+                            break;
+                        }
+                    }
+                    PrismiumClient.distantCullingDistance = next;
                     rebuild();
                 }
         );
@@ -61,6 +79,37 @@ public class PrismiumSettingsScreen extends Screen {
                     ));
                 }
         ).dimensions(centerX - 100, y + 60, 200, 20).build());
+
+
+        addDistanceButtons(
+                centerX, y + 120,
+                "Sign Text Distance: ",
+                PrismiumClient.signTextDistance,
+                () -> {
+                    int[] steps = {1, 8, 16, 24, 32, 40, 48, 56, 64};
+                    int current = PrismiumClient.signTextDistance;
+                    int previous = 1;
+                    for (int step : steps) {
+                        if (step >= current) break;
+                        previous = step;
+                    }
+                    PrismiumClient.signTextDistance = previous;
+                    rebuild();
+                },
+                () -> {
+                    int[] steps = {1, 8, 16, 24, 32, 40, 48, 56, 64};
+                    int current = PrismiumClient.signTextDistance;
+                    int next = 64;
+                    for (int step : steps) {
+                        if (step > current) {
+                            next = step;
+                            break;
+                        }
+                    }
+                    PrismiumClient.signTextDistance = next;
+                    rebuild();
+                }
+        );
 
         addDistanceButtons(
                 centerX, y + 90,
@@ -91,7 +140,7 @@ public class PrismiumSettingsScreen extends Screen {
         );
 
         addDistanceButtons(
-                centerX, y + 120,
+                centerX, y + 150,
                 "Dropped Item Distance: ",
                 PrismiumClient.droppedItemDistance,
                 () -> {
@@ -132,6 +181,7 @@ public class PrismiumSettingsScreen extends Screen {
                 }
         ).dimensions(centerX - 100, this.height - 35, 200, 20).build());
     }
+
 
     private void addDistanceButtons(
             int centerX,
