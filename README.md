@@ -50,4 +50,4 @@ Prismium is built around player agency. No complex config file hunting required:
 * **CurseForge:** [Prismium on CurseForge](https://www.curseforge.com/minecraft/mc-mods/prismium)
 * **License:** [MIT License](LICENSE)
 
-⚠️ **Author's Note:** I am officially active **ONLY** on GitHub and CurseForge. Any profiles or downloads on other platforms are fake or unauthorized reuploads. Thank you for supporting the official release!
+⚠️ **Author's Note:** I am officially active **ONLY** on GitHub, Modrinth and CurseForge. Any profiles or downloads on other platforms are fake or unauthorized reuploads. Thank you for supporting the official release!
